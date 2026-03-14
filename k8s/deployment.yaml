@@ -1,12 +1,12 @@
-apiversion: apps/vi
-kind: deployment
+apiVersion: apps/v1
+kind: Deployment
 metadata:
   name: devops-app
 spec:
   replicas: 2
   selector: 
-    match labels:
-         app: devops-app
+    matchLabels:
+      app: devops-app
   template:
     metadata: 
      labels:
