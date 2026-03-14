@@ -1,3 +1,2 @@
-FROM nginx
-COPY ./usr/share/nginx/html
-RUN echo 'Docker container creating'
+FROM nginx:alpine
+COPY . /usr/share/nginx/html
