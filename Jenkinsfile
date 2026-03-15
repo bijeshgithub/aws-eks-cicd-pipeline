@@ -1,10 +1,17 @@
 pipeline {
   agent any
 
+  environment {
+    AWS_REGION = "eu-north-1"
+    ECR_REPO = "906482382692.dkr.ecr.eu-north-1.amazonaws.com/devops-eks-app"
+  }
+
   stages {
-    stage ('clone') {
+
+    stage('Clone Repository') {
       steps {
-        git 'git@github.com:bijeshgithub/aws-eks-cicd-pipeline.git'
+        git credentialsId: 'github-ssh',
+        url: 'git@github.com:bijeshgithub/aws-eks-cicd-pipeline.git'
       }
     }
     stage ('Build Docker Image') {
