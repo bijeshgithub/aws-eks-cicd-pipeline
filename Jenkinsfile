@@ -12,7 +12,7 @@ pipeline {
         sh 'docker build -t devops-app: latest .'
       }
     }
-    stage ('List Docker Image') {
+    stage ('List Docker Images') {
       steps {
         sh 'docker image ls'
       }
