@@ -10,8 +10,7 @@ pipeline {
 
     stage('Clone Repository') {
       steps {
-        git credentialsId: 'github-ssh',
-        url: 'git@github.com:bijeshgithub/aws-eks-cicd-pipeline.git'
+        git 'https://github.com/bijeshgithub/aws-eks-cicd-pipeline'
       }
     }
     stage ('Build Docker Image') {
