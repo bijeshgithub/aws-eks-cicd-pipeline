@@ -36,11 +36,13 @@ pipeline {
         sh 'docker push 906482382692.dkr.ecr.eu-north-1.amazonaws.com/devops-eks-app:latest'
       }
     }
-    stage ('Deploy to K8s') {
+    stage('Deploy to EKS') {
       steps {
-        sh 'kubectl apply -f k8s/'
-
-      }
+         sh '''
+         aws eks update-kubeconfig --region eu-north-1 --name devops-eks-cluster
+         kubectl apply -f k8s/
+         '''
+      } 
     }
   }
 }
