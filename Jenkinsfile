@@ -23,6 +23,14 @@ pipeline {
         sh 'docker tag devops-app:latest 906482382692.dkr.ecr.eu-north-1.amazonaws.com/devops-eks-app:latest'
       }
     }
+    stage('Login to ECR') {
+      steps {
+        sh '''
+        aws ecr get-login-password --region eu-north-1 | \
+        docker login --username AWS --password-stdin 906482382692.dkr.ecr.eu-north-1.amazonaws.com
+        '''
+      }
+    }
     stage('Push Image') {
       steps {
         sh 'docker push 906482382692.dkr.ecr.eu-north-1.amazonaws.com/devops-eks-app:latest'
