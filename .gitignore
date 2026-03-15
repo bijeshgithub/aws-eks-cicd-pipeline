@@ -1,0 +1,14 @@
+# SSH Keys
+*.pem
+*.key
+
+# Kubernetes
+kubeconfig
+
+# Logs
+*.log
+
+# Docker
+docker-compose.override.yml
+
+
