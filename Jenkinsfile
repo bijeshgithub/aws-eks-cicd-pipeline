@@ -4,7 +4,7 @@ pipeline {
   stages {
     stage ('clone') {
       steps {
-        git 'https://github.com/bijeshgithub/aws-eks-cicd-pipeline'
+        git 'git@github.com:bijeshgithub/aws-eks-cicd-pipeline.git'
       }
     }
     stage ('Build Docker Image') {
